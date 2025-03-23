@@ -5,56 +5,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .sidebar {
+            width: 200px;
+            background: #333;
+            color: white;
+            height: 100vh;
+            padding: 15px;
+            position: fixed;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 10px 0;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        .main-content {
+            margin-left: 200px;
+            width: 100%;
+        }
+        .navbar {
+            background: #555;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+        }
+        table {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Registration Form</h2>
-        <form action="#" method="post">
-            <table>
-                <tr>
-                    <th colspan="2">Personal Information</th> <!-- Column span -->
-                </tr>
-                <tr>
-                    <td>Full Name:</td>
-                    <td><input type="text" name="fullname" required></td>
-                </tr>
-                <tr>
-                    <td>Email:</td>
-                    <td><input type="email" name="email" required></td>
-                </tr>
-                <tr>
-                    <td>Password:</td>
-                    <td><input type="password" name="password" required></td>
-                </tr>
-                <tr>
-                    <td rowspan="2">Gender:</td> <!-- Row span -->
-                    <td><input type="radio" name="gender" value="male"> Male</td>
-                </tr>
-                <tr>
-                    <td><input type="radio" name="gender" value="female"> Female</td>
-                </tr>
-                <tr>
-                    <td>Country:</td>
-                    <td>
-                        <select name="country">
-                            <option value="USA">USA</option>
-                            <option value="UK">UK</option>
-                            <option value="India">India</option>
-                            <option value="Canada">Canada</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Address:</td>
-                    <td><textarea name="address" rows="3"></textarea></td>
-                </tr>
-                <tr>
-                    <td colspan="2" class="submit-row">
-                        <input type="submit" value="Register">
-                    </td>
-                </tr>
-            </table>
-        </form>
+    <div class="sidebar">
+        <h3>Menu</h3>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="navbar">
+            <h2>Registration Page</h2>
+        </div>
+        <div class="container">
+            <h2>Registration Form</h2>
+            <form action="#" method="post">
+                <table>
+                    <tr>
+                        <th colspan="2">Personal Information</th>
+                    </tr>
+                    <tr>
+                        <td>Full Name:</td>
+                        <td><input type="text" name="fullname" required></td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td><input type="email" name="email" required></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="password" name="password" required></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Gender:</td>
+                        <td><input type="radio" name="gender" value="male"> Male</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" name="gender" value="female"> Female</td>
+                    </tr>
+                    <tr>
+                        <td>Country:</td>
+                        <td>
+                            <select name="country">
+                                <option value="USA">USA</option>
+                                <option value="UK">UK</option>
+                                <option value="India">India</option>
+                                <option value="Canada">Canada</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Address:</td>
+                        <td><textarea name="address" rows="3"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="submit-row">
+                            <input type="submit" value="Register">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
     </div>
 </body>
 </html>
