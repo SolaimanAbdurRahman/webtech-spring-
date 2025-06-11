@@ -1,3 +1,9 @@
+<?php
+if (isset($_GET['page']) && $_GET['page'] === 'login') {
+    header('Location: controller/authController.php?page=login');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -390,16 +396,16 @@
     <header>
         <div class="container">
             <nav>
-                <a href="#" class="logo">Secure<span>Auth</span> Pro</a>
+                <a href="google.com" class="logo">Secure<span>Auth</span> Pro</a>
                 
                 <ul class="nav-links">
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#features">sdfs</a></li>
+                    <li><a href="#testimonials">hkdbfhd</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 
                 <div class="nav-btns">
-                    <a href="login.html" class="btn btn-outline">Login</a>
+                    <a href="?page=login" class="btn btn-outline">Login</a>
                     <a href="signup.html" class="btn btn-primary">Sign Up</a>
                 </div>
                 
