@@ -3,6 +3,11 @@ if (isset($_GET['page']) && $_GET['page'] === 'login') {
     header('Location: controller/authController.php?page=login');
     exit;
 }
+
+if (isset($_GET['page']) && $_GET['page'] === 'signup') {
+    header('Location: controller/authController.php?page=signup');
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -406,7 +411,7 @@ if (isset($_GET['page']) && $_GET['page'] === 'login') {
                 
                 <div class="nav-btns">
                     <a href="?page=login" class="btn btn-outline">Login</a>
-                    <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                    <a href="?page=signup" class="btn btn-primary">Sign Up</a>
                 </div>
                 
                 <div class="hamburger">
