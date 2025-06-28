@@ -1,3 +1,12 @@
+<?php
+// Add this at the top of dashboard.php
+session_start();
+if (!isset($_SESSION['user'])) {
+    header('Location: ?page=login');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -262,6 +271,7 @@
                 <li><a href="vehicles.php"><i class="icon">🚗</i> Vehicles</a></li>
                 <li><a href="bookings.php"><i class="icon">📅</i> Bookings</a></li>
                 <li><a href="customers.php"><i class="icon">👥</i> Customers</a></li>
+                 <li><a href="profile.php"class="action-btn secondary" > profile</a></li>
                 <?php if ($_SESSION['user_role'] === 'admin'): ?>
                 <li><a href="admin.php"><i class="icon">⚙️</i> Admin</a></li>
                 <?php endif; ?>
@@ -284,6 +294,7 @@
                 <button class="action-btn secondary">🚗 Add Vehicle</button>
                 <button class="action-btn secondary">👤 Add Customer</button>
                 <button class="action-btn secondary" id="exportBtn">📤 Export Data</button>
+               
             </div>
             
             <!-- Widget Grid -->

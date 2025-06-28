@@ -218,8 +218,16 @@
             <p>Please enter your credentials to login</p>
         </div>
         
-        <form id="loginForm" action="login.php" method="POST">
-            <div class="form-group">
+        <form id="loginForm" action="?page=login" method="POST">
+            <?php if (!empty($loginErrors)): ?>
+        <div class="error-message" style="display: block; margin-bottom: 20px;">
+            <?php foreach ($loginErrors as $error): ?>
+                <p><?php echo htmlspecialchars($error); ?></p>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
+    
+              <div class="form-group">
                 <label for="email">Email Address</label>
                 <div class="input-field">
                     <i class="fas fa-envelope"></i>

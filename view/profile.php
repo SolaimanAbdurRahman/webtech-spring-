@@ -1,3 +1,13 @@
+<?php
+if (isset($_SESSION['error'])) {
+    echo '<div class="error-message" style="display: block; color: red; margin-bottom: 20px;">'.htmlspecialchars($_SESSION['error']).'</div>';
+    unset($_SESSION['error']);
+}
+if (isset($_SESSION['success'])) {
+    echo '<div class="error-message" style="display: block; color: green; margin-bottom: 20px;">'.htmlspecialchars($_SESSION['success']).'</div>';
+    unset($_SESSION['success']);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -167,12 +177,15 @@
     <div class="container">
         <!-- Profile Header -->
         <div class="profile-header">
-            <div class="avatar-container">
-                <img src="<?php echo htmlspecialchars($user['avatar_url'] ?? 'default-avatar.jpg'); ?>" alt="Profile Photo" class="avatar">
-                <div class="avatar-upload" title="Change Photo">
-                    <i>+</i>
-                </div>
-            </div>
+<div class="avatar-container">
+    <img src="../uploads/avatars/<?php echo htmlspecialchars($user['avatar_url'] ?? 'default-avatar.jpg'); ?>" alt="Profile Photo" class="avatar">
+    <form method="POST" enctype="multipart/form-data" class="avatar-upload-form">
+        <label for="avatar-upload" class="avatar-upload" title="Change Photo">
+            <i>+</i>
+        </label>
+        <input type="file" id="avatar-upload" name="avatar" accept="image/*" style="display: none;" onchange="this.form.submit()">
+    </form>
+</div>
             <div>
                 <h1><?php echo htmlspecialchars($user['name']); ?></h1>
                 <p>Member since: <?php echo date('F Y', strtotime($user['created_at'])); ?></p>
@@ -190,7 +203,7 @@
         <!-- Profile Tab -->
         <div id="profile" class="tab-content active">
             <h2>Personal Information</h2>
-            <form method="POST" action="profile.php">
+            <form method="POST" action="?page=profile">
                 <div class="form-group">
                     <label for="name">Full Name</label>
                     <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($user['name']); ?>">
@@ -330,6 +343,21 @@
             document.getElementById(tabName).classList.add("active");
             evt.currentTarget.classList.add("active");
         }
+        document.getElementById('avatar-upload').addEventListener('change', function() {
+    const form = this.closest('form');
+    const loading = document.createElement('div');
+    loading.innerHTML = 'Uploading...';
+    loading.style.position = 'absolute';
+    loading.style.background = 'rgba(0,0,0,0.7)';
+    loading.style.color = 'white';
+    loading.style.padding = '5px 10px';
+    loading.style.borderRadius = '5px';
+    this.parentNode.appendChild(loading);
+    
+    form.submit();
+});
     </script>
+
+
 </body>
 </html>
